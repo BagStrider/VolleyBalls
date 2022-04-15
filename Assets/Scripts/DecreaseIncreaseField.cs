@@ -10,27 +10,27 @@ public class DecreaseIncreaseField : MonoBehaviour
     [SerializeField] private int _minimumNumber;
     [SerializeField] private int _maximumNumber;
     [SerializeField] private int _starNumber;
-    private int value;
+    public int Value { get; private set; }
     private void Awake()
     {
-        value = _starNumber;
-        _text.text = value.ToString();
+        Value = _starNumber;
+        _text.text = Value.ToString();
     }
     public void Increase()
     {
-        value = Convert.ToInt32(_text.text);
-        if(value >= _maximumNumber)
+        Value = Convert.ToInt32(_text.text);
+        if(Value >= _maximumNumber)
             return;
-        value++;
-        _text.text = value.ToString();
+        Value++;
+        _text.text = Value.ToString();
     }
 
     public void Decrease()
     {
-        value = Convert.ToInt32(_text.text);
-        if (value <= _minimumNumber)
+        Value = Convert.ToInt32(_text.text);
+        if (Value <= _minimumNumber)
             return;
-        value--;
-        _text.text = value.ToString();
+        Value--;
+        _text.text = Value.ToString();
     }
 }
