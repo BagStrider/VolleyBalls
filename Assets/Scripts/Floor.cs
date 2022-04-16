@@ -11,9 +11,17 @@ public class Floor : MonoBehaviour
     [SerializeField] private UnityEvent _leftSideDrop;
     [SerializeField] private UnityEvent _rightSideDrop;
     [SerializeField] private UnityEvent _ballDrop;
+    [SerializeField] private UnityEvent _gameEnd;
 
     private int scorep1;
     private int scorep2;
+    private int _rounds;
+
+    private void Awake()
+    {
+        SaveSystem.Load();
+        _rounds = SaveSystem.settings.rounds;
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -48,6 +56,11 @@ public class Floor : MonoBehaviour
             _p1Score.text = scorep1.ToString();
             _leftSideDrop?.Invoke();
             _ballDrop?.Invoke();
+        }
+
+        if(scorep1 >= _rounds || scorep2>= _rounds)
+        {
+            _gameEnd?.Invoke();
         }
     }
 }
