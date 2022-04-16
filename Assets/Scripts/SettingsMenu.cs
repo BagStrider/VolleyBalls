@@ -13,4 +13,11 @@ public class SettingsMenu : MonoBehaviour
     }
 
 
+    public void SaveSettings()
+    {
+        SettingsData settings = new SettingsData(_decreaseIncreaseField);
+        SaveSystem.settings = settings;
+        SaveSystem.Save();
+    }
+
 }

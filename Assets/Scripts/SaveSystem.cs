@@ -10,6 +10,7 @@ public static class SaveSystem
     public static void Save()
     {
         string json = JsonUtility.ToJson(settings);
+        Debug.Log(json);
         WriteToFile(file, json);
         
     }
@@ -19,7 +20,7 @@ public static class SaveSystem
         string path = Application.dataPath + "/" + file;
         FileStream fileStream = new FileStream(path, FileMode.Create);
 
-        using (StreamWriter writer = new StreamWriter(file))
+        using (StreamWriter writer = new StreamWriter(fileStream))
         {
             writer.Write(json);
         }

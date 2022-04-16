@@ -1,1 +1,1 @@
-{"rounds":28,"p1Name":"","p2Name":""}
+{"rounds":18,"p1Name":"","p2Name":""}
