@@ -58,7 +58,7 @@ public class Floor : MonoBehaviour
             _ballDrop?.Invoke();
         }
 
-        if(scorep1 >= _rounds || scorep2>= _rounds)
+        if(scorep1 >= _rounds || scorep2 >= _rounds)
         {
             _gameEnd?.Invoke();
         }

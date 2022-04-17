@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
     {
         _player1.GetComponent<Rigidbody2D>().isKinematic = true;
         _player2.GetComponent<Rigidbody2D>().isKinematic = true;
-        _ball.GetComponent<Rigidbody2D>().isKinematic=true;
+        _timer.gameObject.SetActive(false);
+        _ball.gameObject.SetActive(false);
     }
 }
