@@ -2326,6 +2326,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _p1Name: {fileID: 1984321720}
+  _p2Name: {fileID: 262317804}
 --- !u!61 &2040376733
 BoxCollider2D:
   m_ObjectHideFlags: 0

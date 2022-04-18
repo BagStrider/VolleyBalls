@@ -12,6 +12,8 @@ public class Floor : MonoBehaviour
     [SerializeField] private UnityEvent _rightSideDrop;
     [SerializeField] private UnityEvent _ballDrop;
     [SerializeField] private UnityEvent _gameEnd;
+    [SerializeField] private TextMeshProUGUI _p1Name;
+    [SerializeField] private TextMeshProUGUI _p2Name;
 
     private int scorep1;
     private int scorep2;
@@ -19,8 +21,12 @@ public class Floor : MonoBehaviour
 
     private void Awake()
     {
+
         SaveSystem.Load();
         _rounds = SaveSystem.settings.rounds;
+        Debug.Log($"{SaveSystem.settings.p1Name}|||||{SaveSystem.settings.p2Name}");
+        _p1Name.text = SaveSystem.settings.p1Name;
+        _p2Name.text = SaveSystem.settings.p2Name;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
