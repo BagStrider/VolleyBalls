@@ -6,7 +6,6 @@ public static class SaveSystem
     public static SettingsData settings;
     public static string file = "GameSettings.txt";
 
-
     public static void Save()
     {
         string json = JsonUtility.ToJson(settings);
@@ -46,7 +45,10 @@ public static class SaveSystem
 
     public static void Load()
     {
+
         string json = ReadFromFile(file);
-        JsonUtility.FromJsonOverwrite(json, settings);
+        SettingsData settingsData = new SettingsData();
+        JsonUtility.FromJsonOverwrite(json, settingsData);
+        settings = settingsData;
     }
 }

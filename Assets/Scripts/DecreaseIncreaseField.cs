@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class DecreaseIncreaseField : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI _text;
+    [SerializeField] private TMP_InputField _text;
     [SerializeField] private int _minimumNumber;
     [SerializeField] private int _maximumNumber;
     [SerializeField] private int _starNumber;

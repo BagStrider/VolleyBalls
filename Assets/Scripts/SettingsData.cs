@@ -13,4 +13,10 @@ public class SettingsData
         this.p1Name = p1Name;
         this.p2Name = p2Name;
     }
+    public SettingsData()
+    {
+        rounds=0;
+        p1Name = "defaul";
+        p2Name = "defaul";
+    }
 }

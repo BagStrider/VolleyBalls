@@ -1,1 +1,1 @@
-{"rounds":3,"p1Name":"123123​","p2Name":"123123​"}
+{"rounds":12,"p1Name":"test","p2Name":"test​"}
