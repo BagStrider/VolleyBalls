@@ -32,11 +32,21 @@ public class GameManager : MonoBehaviour
         _player2.transform.position = new Vector3(_playersResetPosition.x,_playersResetPosition.y,0);
     }
 
-    public void StopGame()
+    public void StopGame(bool isStop)
     {
-        _player1.GetComponent<Rigidbody2D>().isKinematic = true;
-        _player2.GetComponent<Rigidbody2D>().isKinematic = true;
-        _timer.gameObject.SetActive(false);
-        _ball.gameObject.SetActive(false);
+        if(isStop)
+        {
+            _player1.GetComponent<Rigidbody2D>().isKinematic = true;
+            _player2.GetComponent<Rigidbody2D>().isKinematic = true;
+            _timer.gameObject.SetActive(false);
+            _ball.gameObject.SetActive(false);
+        }
+        else
+        {
+            _player1.GetComponent<Rigidbody2D>().isKinematic = false;
+            _player2.GetComponent<Rigidbody2D>().isKinematic = false;
+            _timer.gameObject.SetActive(true);
+            _ball.gameObject.SetActive(true);
+        }
     }
 }
