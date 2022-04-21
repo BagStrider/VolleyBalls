@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -48,5 +49,10 @@ public class GameManager : MonoBehaviour
             _timer.gameObject.SetActive(true);
             _ball.gameObject.SetActive(true);
         }
+    }
+
+    public void ChangeScene(int index)
+    {
+        SceneManager.LoadScene(index);
     }
 }
