@@ -17,4 +17,9 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene(2);
     }
+
+    public void OpenMatchHistory()
+    {
+        SceneManager.LoadScene(3);
+    }
 }
