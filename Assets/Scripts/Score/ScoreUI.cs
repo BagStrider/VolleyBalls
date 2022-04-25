@@ -3,11 +3,12 @@ using UnityEngine;
 public class ScoreUI : MonoBehaviour
 {
     [SerializeField]private RowUI rowUI;
-    [SerializeField]private ScoreManager scoreManager;
 
-    public void Start()
+    public void Awake()
     {
-        foreach(Score score in scoreManager.Scores)
+        ScoreManager.Initialize();
+        ScoreManager.AddScore(new Score("1", "2", 12, 13));
+        foreach(Score score in ScoreManager.Scores)
         {   
             var row = Instantiate(rowUI, transform).GetComponent<RowUI>();
             row.player1Name.text = score.Player1Name;

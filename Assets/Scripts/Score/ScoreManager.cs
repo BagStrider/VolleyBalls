@@ -1,28 +1,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ScoreManager : MonoBehaviour
+public static class ScoreManager
 {
-    public List<Score> Scores { get; private set; }
+    public static List<Score> Scores { get; private set; }
 
-    public void Awake()
+    public static void Initialize()
     {
         string json = PlayerPrefs.GetString("scores", "{}");
-
         Scores = JsonUtility.FromJson<List<Score>>(json);
     }
 
-    public void AddScore(Score score)
+    public static void AddScore(Score score)
     {
+        Initialize();
         Scores.Add(score);
-    }
-
-    private void OnDestroy()
-    {
         SaveScore();
     }
 
-    public void SaveScore()
+    public static void SaveScore()
     {
         string json = JsonUtility.ToJson(Scores);
         PlayerPrefs.SetString("scores", json);

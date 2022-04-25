@@ -9,7 +9,6 @@ public static class SaveSystem
     public static void Save()
     {
         string json = JsonUtility.ToJson(settings);
-        Debug.Log(json);
         WriteToFile(file, json);
         
     }

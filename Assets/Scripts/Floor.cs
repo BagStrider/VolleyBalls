@@ -24,7 +24,6 @@ public class Floor : MonoBehaviour
 
     private void Awake()
     {
-
         SaveSystem.Load();
         _rounds = SaveSystem.settings.rounds;
         _p1Name.text = SaveSystem.settings.p1Name;
@@ -88,6 +87,8 @@ public class Floor : MonoBehaviour
                 _winsText.color = Color.blue;
             }
             _endGamePanel.gameObject.SetActive(true);
+            ScoreManager.Initialize();
+            ScoreManager.AddScore(new Score(_p1Name.text, _p2Name.text, _scorep1, _scorep2));
             _gameEnd?.Invoke();
         }
     }
