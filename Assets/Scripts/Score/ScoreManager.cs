@@ -3,24 +3,26 @@ using UnityEngine;
 
 public static class ScoreManager
 {
-    public static List<Score> Scores { get; private set; }
-
+    public static ScoreCollection ScoreCollection;
     public static void Initialize()
     {
-        string json = PlayerPrefs.GetString("scores", "{}");
-        Scores = JsonUtility.FromJson<List<Score>>(json);
+        string json = PlayerPrefs.GetString("scoreCollection", "{}");
+        ScoreCollection = JsonUtility.FromJson<ScoreCollection>(json);
+        if(ScoreCollection== null)
+        {
+            ScoreCollection = new ScoreCollection();
+        }
     }
 
     public static void AddScore(Score score)
     {
-        Initialize();
-        Scores.Add(score);
-        SaveScore();
+        ScoreCollection.Scores.Add(score);
     }
 
     public static void SaveScore()
     {
-        string json = JsonUtility.ToJson(Scores);
-        PlayerPrefs.SetString("scores", json);
+        string json = JsonUtility.ToJson(ScoreCollection);  
+
+        PlayerPrefs.SetString("scoreCollection", json);
     }
 }

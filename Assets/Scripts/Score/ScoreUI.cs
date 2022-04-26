@@ -2,15 +2,14 @@ using UnityEngine;
 
 public class ScoreUI : MonoBehaviour
 {
-    [SerializeField]private RowUI rowUI;
+    [SerializeField]private RowUI _rowUI;
 
     public void Awake()
     {
         ScoreManager.Initialize();
-        ScoreManager.AddScore(new Score("1", "2", 12, 13));
-        foreach(Score score in ScoreManager.Scores)
+        foreach(Score score in ScoreManager.ScoreCollection.Scores)
         {   
-            var row = Instantiate(rowUI, transform).GetComponent<RowUI>();
+            var row = Instantiate(_rowUI, transform).GetComponent<RowUI>();
             row.player1Name.text = score.Player1Name;
             row.player2Name.text = score.Player2Name;
             row.player1Score.text = score.Player1Score.ToString();

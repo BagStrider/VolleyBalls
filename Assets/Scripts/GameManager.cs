@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour
 
     public void ChangeScene(int index)
     {
-        SceneManager.LoadScene(index);
         ScoreManager.SaveScore();
+        SceneManager.LoadScene(index);
     }
 }
